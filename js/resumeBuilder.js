@@ -29,7 +29,7 @@ bio.display = function () {
 	$("#header").append(formattedWelcomeMsg);
 
 
-	// Contact Info
+	// Header Contact Info
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
 
@@ -44,7 +44,8 @@ bio.display = function () {
 
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
-
+    
+    //Footer Contact Info
 	$("#footerContacts").append(formattedMobile);
     $("#footerContacts").append(formattedEmail);
     $("#footerContacts").append(formattedGithub);
@@ -52,19 +53,19 @@ bio.display = function () {
 
     //Skills info
     if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
+    	$("#header").append(HTMLskillsStart);
 
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
+    	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    	$("#skills").append(formattedSkill);
 
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
+    	var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    	$("#skills").append(formattedSkill);
 
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
+    	var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    	$("#skills").append(formattedSkill);
 
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedSkill);
+    	var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    	$("#skills").append(formattedSkill);
 	}
 }
 bio.display();
@@ -119,17 +120,17 @@ var projects = {
 	"projects": [
 	{
 		"title": "HTML Page Mockup",
+		"titleUrl": "https://github.com/OusainouTouray/html-mockup",
 		"date": "November 2014",
 		"description": "Mockup of a responsive product page using html and css.",
-		"images": ["images/html-product-page.png"]
-
+		"images": ["images/html-product-page.png"],
 	},
 	{
 		"title": "Google Homepage Mockup",
+		"titleUrl": "https://github.com/OusainouTouray/google-homepage",
 		"date": "April 2014",
 		"description": "Deconstruction and rebuilding a mockup of the Google homepage.",
-		"images": ["images/google-homepage.png"]
-
+		"images": ["images/google-homepage.png"],
 	}
 	]
 };
@@ -139,7 +140,7 @@ projects.display = function() {
 
 		$("#projects").append(HTMLprojectStart);
 
-		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedProjectTitle = (HTMLprojectTitle.replace("%data%", projects.projects[project].title)).replace("#", projects.projects[project].titleUrl);
 		$(".project-entry:last").append(formattedProjectTitle);
 
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].date);
@@ -148,11 +149,12 @@ projects.display = function() {
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedProjectDescription);
 
-		if(projects.projects[project].images.length > 0){
-			for (image in projects.projects[project].images)
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
 
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 			    $(".project-entry:last").append(formattedProjectImage);
+			}		
 		}
 	}
 }
@@ -165,7 +167,7 @@ var education = {
 	{
 		"name": "Bartlett H.S.",
 		"location": "Anchorage, AK",
-		"degree": "H.S. Diploma",
+		"degree": "Diploma",
 		"major": "General Studies",
 		"dates": "2004 ",
 
@@ -174,18 +176,21 @@ var education = {
 	"onlineCourses": [
 		{
 			"title": "Front-end Developer NanoDegree",
+			"titleUrl": "https://www.udacity.com/course/nd001",
 			"school": "Udacity",
 			"dates": "October 2014 - present",
 			"url": "udacity.com"
 		},
 		{
 			"title": "Python for Everybody",
+			"titleUrl": "https://www.coursera.org/course/pythonlearn",
 			"school": " Coursera ( by University of Michigan )",
 			"dates": "July 2014",
 			"url": "coursera.org"
 		},
 		{
 			"title": "An Introduction to Marketing",
+			"titleUrl": "https://www.coursera.org/course/marketing",
 			"school": " Coursera ( by University of Pennsylvania )",
 			"dates": "July 2014",
 			"url": "coursera.org"
@@ -210,23 +215,27 @@ education.display = function() {
 		$(".education-entry:last").append(formattedLocation);
 	}
 
-    $(".education-entry:last").append(HTMLonlineClasses);   
+	// Online Classes Info
+	$("#education").append(HTMLonlineClasses);
 
-    for(course in education.onlineCourses){
+    for (course in education.onlineCourses) {  
 
-	    var formattedOnlineTitle= HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
-		var formattedOnlineSchool= HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
+        $("#education").append(HTMLschoolStart);
+
+	    var formattedOnlineTitle = (HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title)).replace("#", education.onlineCourses[course].titleUrl);;
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
 		var formattedTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
 		$(".education-entry:last").append(formattedTitleSchool);
 
-		var formattedOnlineDates= HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
 		$(".education-entry:last").append(formattedOnlineDates);
 
-		var formattedOnlineUrl= HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
+		var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
 		$(".education-entry:last").append(formattedOnlineUrl);
 	}	
 }
 education.display();
+
 
 
 // Shows map
