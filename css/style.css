@@ -13,6 +13,10 @@
   padding-right: 5%;
 }
 
+.project-entry {
+border-bottom: 5px solid #f9f9f9;
+}
+
 #education h3 {
 padding-top: 3%;
 color: #484848;
@@ -120,12 +124,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #3d4351;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #3d4351;
 }
 
 .flex-box {
