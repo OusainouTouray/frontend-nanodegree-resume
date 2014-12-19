@@ -10,7 +10,7 @@ var bio = {
 		"twitter": "@oustouray",
 		"location": "Atlanta"
 	},
-	"welcomeMessage": "Welcome to my online resume! Hand-crafted with passion :)",
+	"welcomeMessage": "Welcome to my online resume! Handcrafted with passion :)",
     "skills": ["HTML", "CSS", "Javascript", "Python"],
     "bioPic": "images/mypic.jpg"
 };
@@ -44,7 +44,7 @@ bio.display = function () {
 
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
-    
+
     //Footer Contact Info
 	$("#footerContacts").append(formattedMobile);
     $("#footerContacts").append(formattedEmail);
@@ -145,7 +145,7 @@ projects.display = function() {
 
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].date);
 		$(".project-entry:last").append(formattedProjectDates);
-		
+
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedProjectDescription);
 
@@ -154,7 +154,7 @@ projects.display = function() {
 
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 			    $(".project-entry:last").append(formattedProjectImage);
-			}		
+			}
 		}
 	}
 }
@@ -218,7 +218,7 @@ education.display = function() {
 	// Online Classes Info
 	$("#education").append(HTMLonlineClasses);
 
-    for (course in education.onlineCourses) {  
+    for (course in education.onlineCourses) {
 
         $("#education").append(HTMLschoolStart);
 
@@ -232,7 +232,7 @@ education.display = function() {
 
 		var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
 		$(".education-entry:last").append(formattedOnlineUrl);
-	}	
+	}
 }
 education.display();
 
@@ -249,17 +249,3 @@ $(document).click(function(loc){
 
 	logClicks(x, y);
 });
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
